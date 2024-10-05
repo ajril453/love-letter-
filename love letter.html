@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter Animation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec;
+            color: #880e4f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .envelope {
+            width: 400px;
+            height: 200px;
+            background-color: #d81b60;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s;
+        }
+
+        .flap {
+            width: 100%;
+            height: 50%;
+            background-color: #f8bbd0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .letter {
+            position: absolute;
+            width: 400px;
+            max-height: 700px;
+            background-color: white;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 0.5s ease-in-out;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            font-size: 1em;
+            text-align: left;
+            overflow-y: auto;
+        }
+
+        .letter p {
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #d81b60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #880e4f;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="envelope" id="envelope">
+    <div class="flap" id="flap"></div>
+    <div class="letter" id="letter">
+        <p>Dear reva,</p>
+        <p>
+            aku mau minta maaf, aku minta maaf karena hari ini ga bisa tepatin perkataan aku yaitu buat pergi sama kamu, aku
+            salah karena mungkin udah buat kamu nunggu
+            maaf yaa maaf banget cuman ini yang bisa aku kasih sebagai permintaan maaf walaupun ku tau ga bisa tebus salah aku 
+            tapi aku mau minta maaf udah ngecewain kamu
+            i'm sorry reva maaf buat hari ini.
+        </p>
+        <p>
+            maaf yaa maaf banget cuman ini yang bisa aku kasih sebagai permintaan maaf walaupun ku tau ga bisa tebus salah aku 
+            tapi aku mau minta maaf udah ngecewain kamu
+            i'm sorry reva maaf buat hari ini.
+        </p>
+    </div>
+</div>
+
+<!-- Tombol berada di luar amplop, di bawah surat -->
+<button id="openLetterBtn">Open the Letter</button>
+
+<!-- Audio player untuk musik -->
+<audio id="backgroundMusic" src="penjaga_hati_-_nadhif_basalamah__sped_up_tiktok_version__earphone_recomended(128k).m4a"></audio>
+
+<script>
+    const flap = document.getElementById('flap');
+    const letter = document.getElementById('letter');
+    const openLetterBtn = document.getElementById('openLetterBtn');
+    const backgroundMusic = document.getElementById('backgroundMusic');
+
+    openLetterBtn.addEventListener('click', function() {
+        // Animate the flap opening
+        flap.style.top = '-50%';
+        // Animate the letter sliding out
+        letter.style.top = '0';
+        // Play background music
+        backgroundMusic.play();
+    });
+</script>
+
+</body>
+</html>
